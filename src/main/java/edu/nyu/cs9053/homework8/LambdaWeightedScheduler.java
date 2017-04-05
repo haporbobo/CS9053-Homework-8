@@ -22,9 +22,7 @@ public class LambdaWeightedScheduler {
 	public LinkedList<LambdaJobWeighted> getOptimalValueSet() { 
 		Collections.sort(jobCandiates);
 		LinkedList<LambdaJobWeighted> sortedJobCandiates = getJobCandiates();
-
 		int[] compatibleLargestIndexTable = computeCompatibleTable(sortedJobCandiates);
-
 		LinkedList<LambdaJobWeighted> optimalValueSet = computeOptimalValueSet(sortedJobCandiates, compatibleLargestIndexTable);
 		return optimalValueSet;
 	}
@@ -50,6 +48,8 @@ public class LambdaWeightedScheduler {
 		return compatibleTable; 
 	}
 
+	//Bottom-up dynamic programming
+	//Recursive algorithm will generate redundant sub-problems, so I use an optimalTrackTable to record the accumulated value.
 	private LinkedList<LambdaJobWeighted> computeOptimalValueSet(LinkedList<LambdaJobWeighted> sortedJobCandiates, int[] compatibleLargestIndexTable) {
 		int[] optimalTrackTable = new int[sortedJobCandiates.size() + 1];
 		optimalTrackTable[0] = 0;

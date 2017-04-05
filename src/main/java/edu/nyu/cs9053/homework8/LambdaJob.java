@@ -3,7 +3,7 @@ import java.time.*;
 
 public class LambdaJob implements Comparable<LambdaJob> {
 	private final int jobID;
-	private final LocalDate startTime; //LocalDate
+	private final LocalDate startTime;
 	private final LocalDate finishTime;
 
 	public LambdaJob(int jobID, LocalDate startTime, LocalDate finishTime) {
@@ -26,9 +26,7 @@ public class LambdaJob implements Comparable<LambdaJob> {
 
 	@Override
 	public int compareTo(LambdaJob other) {
-		//int diff = LocalDate.compare(finishTime, other.finishTime);
 		int diff = finishTime.compareTo(other.finishTime);
-		//return diff != 0 ? diff : LocalDate.compare(startTime, other.startTime); 	
 		return diff != 0 ? diff : startTime.compareTo(other.startTime);
 	}
 }

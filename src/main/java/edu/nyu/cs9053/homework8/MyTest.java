@@ -20,7 +20,7 @@ public class MyTest {
 		test1.printer(test1.getJobCandiates());
 
 		LinkedList<LambdaJob> maxCompatibleSet = test1.computeMaxCompatibleSet();
-		System.out.println("\nGet max compatible set(accepted): ");
+		System.out.println("\nGet maximal compatible set(accepted jobs): ");
 		test1.printer(maxCompatibleSet);
 
 		System.out.println("\n\nTesting LambdaWeightedScheduler... ");
